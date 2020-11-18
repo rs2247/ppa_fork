@@ -1,0 +1,115 @@
+<%= page_component component: 'farmPanelPage' %>
+<input id="daily-contributions-data" type="hidden" value="<%= @daily_contributions_til_today %>"/>
+
+<div class="container-fluid">
+  <%= if assigns[:actual_capture_period] do %>
+    <div class="row">
+      <div class="col-12">
+        <h2 class="content-header">
+          <%= @panel_identification %> - Meta móvel atualizada em: <%= @last_date %>
+        </h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="charts-panels col-md-12">
+        <div class="col-md-4 col-sm-12 no-padding">
+          <div class="panel">
+            <div class="panel-body">
+              <div id="time-chart-farmer" class="chart chart-padding"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 no-padding">
+          <div class="panel">
+            <div class="panel-body chart">
+              <iframe class="speed-goal-iframe" src="http://bi.redealumni.com.br:8888/61d829bfa352eb0baa69a75ec0bfee4c/speedGoalEmpresa.html">
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 no-padding">
+          <div class="panel">
+            <div class="panel-body">
+              <div id="daily-contributions" class="chart chart-padding"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel report-panel">
+          <div class="panel-body no-lat-padding">
+            <table id="report-table" class="data-table">
+              <thead>
+                <th>IES ID</th>
+                <th>IES</th>
+                <th>Grupo ID</th>
+                <th>Grupo</th>
+                <th>Carteira</th>
+                <th>Segmento</th>
+                <th>Período</th>
+                <th>Farm</th>
+                <th>Qualidade</th>
+                <th>Meta semestre (R$)</th>
+                <th>Meta móvel (R$)</th>
+                <th>Realizado (R$)</th>
+                <th>Speed (%)</th>
+                <th>Visitas</th>
+                <th>Atratividade</th>
+                <th>Sucesso</th>
+                <th>Accountable</th>
+              </thead>
+              <tbody>
+                <%= for university <- @university_goals do %>
+                  <tr>
+                    <td><%= university.university_id %></td>
+                    <td><%= university.university_name %></td>
+                    <td><%= university.education_group_id %></td>
+                    <td><%= university.education_group_name %></td>
+                    <td>C<%= university.account_type %></td>
+                    <td><%= university.product_line_name %></td>
+                    <td><%= university.period %></td>
+                    <td><%= university.owner %></td>
+                    <td><%= university.quality_owner %></td>
+                    <td><%= number_to_delimited(university.semester_goal) %></td>
+                    <td><%= number_to_delimited(university.mobile_goal) %></td>
+                    <td><%= number_to_delimited(university.realized) %></td>
+                    <td><%= number_to_percentage(university.speed) %></td>
+                    <td><%= university.visits %></td>
+                    <td><%= number_to_percentage(university.new_orders_per_visits) %></td> <!-- Taxa de Atratividade -->
+                    <td><%= number_to_percentage(university.paid_per_new_orders) %></td>     <!-- Taxa de Exclusividade -->
+                    <td><%= if(university.accountable, do: "Sim", else: "Não") %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="9" style="text-align: right"><b>Totais:</b></td>
+                  <td><span class="no-wrap" id="total-goal"><%= number_to_delimited(@total_goal) %></span></td>
+                  <td><span class="no-wrap" id="mobile-goal"></span></td>
+                  <td><span class="no-wrap" id="total-realized"></span></td>
+                  <td colspan="5"></td>
+                </tr>
+              </tfoot>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+  <% else %>
+    <div class="row">
+      <div class="alert-info">
+        <p class="global-message">Nenhum período de captação aberto no momento.</p>
+      </div>
+    </div>
+  <% end %>
+</div>

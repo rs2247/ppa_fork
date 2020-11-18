@@ -1,0 +1,12 @@
+<input id="capture-period" type="hidden" value="<%= @actual_capture_period.id %>">
+<input id="channel-hash" type="hidden" value="<%= @channel_hash %>">
+<input id="token" type="hidden" value="<%= @token %>">
+<div id="app">
+  <user-home :managing-user="<%= user_has_managing_ability(@conn) %>"></user-home>
+</div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+<%= page_component component: 'userHome' %>

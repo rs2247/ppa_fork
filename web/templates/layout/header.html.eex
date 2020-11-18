@@ -1,0 +1,29 @@
+<header class="row">
+  <div class="header-section main">
+    <div class="app-title">
+      <span>Painel do Parcerias</span>
+    </div>
+
+    <div class="header-section capture-period">
+      <form class="js-capture-period-form" method="post" action="/capture_period">
+        <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+        <input type="hidden" name="current_url" value="<%= @conn.request_path %>">
+        <input class="js-capture-period" type="hidden" name="capture_period" value="<%= @actual_capture_period.id %>">
+        <%= component "dropdown.html", id: "capture_period",
+          class: "dropdown--header combobox-over-transparent-loader", selected: @actual_capture_period.id,
+          items: Enum.map(@capture_periods, fn(period) -> %{label: period.name, value: period.id} end) %>
+      </form>
+    </div>
+
+    <div class="header-section username">
+      <span><%= @admin_user.name %></span>
+    </div>
+  </div>
+  <div class="header-section actions">
+    <div class="header-icon">
+      <a href="/logout">
+        <img src="/images/logout.svg" alt="Sair">
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,6 @@
+use Mix.Config
+
+config :ppa, :staging,
+  awscli_path: "/path/to/aws/cli/program",
+  awscli_profile: "somename",
+  awscli_region: "sa-east-1"

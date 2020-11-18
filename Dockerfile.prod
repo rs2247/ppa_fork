@@ -1,0 +1,40 @@
+FROM elixir:1.7.4
+
+#Remove annoying docker warning
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+RUN chmod 777 /tmp && apt-get update && apt-get install -y software-properties-common build-essential apt-utils \
+  apt-transport-https \
+  wget \
+  curl \
+  git \
+  gcc \
+  erlang-inets \
+  erlang-odbc \
+  odbcinst \
+  libsasl2-modules-gssapi-mit \
+  locales
+
+RUN curl -o /simbaspark.deb https://s3-sa-east-1.amazonaws.com/querobolsa-binaries/simbaspark_2.6.4.1004-2_amd64.deb \
+  && dpkg -i /simbaspark.deb
+
+RUN echo "[ODBC Drivers]\n\
+Simba = Installed\n\
+[Simba]\n\
+Driver = /opt/simba/spark/lib/64/libsparkodbc_sb64.so\n\
+" > /etc/odbcinst.ini
+
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+# End of nonsense
+
+#PPA
+COPY ./_build/prod/rel /
+
+WORKDIR /ppa
+
+VOLUME /ppa/var/log
+
+expose 4000

@@ -1,0 +1,31 @@
+.table {
+  th, td, td div {
+    text-align: center !important;
+    word-wrap: break-word;
+  }
+
+  th {
+    border: none;
+  }
+
+  td {
+    .currency {
+      width: 120px;
+    }
+    .percentage {
+      width: 90px;
+    }
+    .sm-number {
+      width: 90px;
+    }
+    .single-name {
+      width: 120px;
+    }
+    .name {
+      width: 250px;
+    }
+    .lg-name {
+      width: 350px;
+    }
+  }
+}

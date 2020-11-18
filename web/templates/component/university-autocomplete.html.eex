@@ -1,0 +1,11 @@
+<div id="@id" class="dropdown">
+  <div class="dropdown-toggle" data-toggle="dropdown">
+    <span class="flex-grow" data-ref="<%= @selected %>"><%= Keyword.get(@items, @selected) %></span>
+    <span class="fa fa-chevron-down float-right"></span>
+  </div>
+  <ul class="dropdown-menu">
+    <%= for {name, label} <- @items do %>
+    <li><a href="#!" data-ref="<%= Atom.to_string(name) %>"><%= label %></a></li>
+    <% end %>
+  </ul>
+</div>

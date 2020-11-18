@@ -1,0 +1,15 @@
+<%
+  selection = Enum.find(@items, fn(item) -> Map.get(item, :value) == @selected end) || %{}
+%>
+
+<div id="<%= assigns[:id] || '' %>" class="dropdown <%= assigns[:class] || '' %>" data-ref="<%= Map.get(selection, :value) %>">
+  <div class="dropdown-toggle" data-toggle="dropdown">
+    <span class="flex-grow dropdown-label"><%= Map.get(selection, :label) %></span>
+    <span class="glyphicon glyphicon-chevron-down float-right"></span>
+  </div>
+  <ul class="dropdown-menu">
+    <%= for %{label: label, value: value} <- @items do %>
+    <li><a href="#!" data-ref="<%= value %>"><%= label %></a></li>
+    <% end %>
+  </ul>
+</div>

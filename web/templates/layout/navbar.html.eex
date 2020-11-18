@@ -1,0 +1,299 @@
+<nav class="navbar navbar-inverse row over-transparent-loader">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button id="js-navbar-button" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#global-nav" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- NOVA VESAO -->
+    <div id="global-nav" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="navbar__item"><a class="navbar__link" href="/user_panel">Home</a></li>
+
+        <li class="navbar__item">
+          <div class="navbar__dropdown">
+            <span class="navbar__link">Farm</span>
+            <span class="caret"></span>
+
+            <div class="navbar__dropdown__container over-transparent-loader">
+              <div class="navbar__dropdown__item no-padding">
+                <ul class="no-padding">
+                  <li class="dropdown-submenu no-list-style navbar-padding">
+                    <div class="flex-vertical-centered">
+
+                      <span class="small-padding-right">Resultado</span>
+                      <span class="right-or-down-caret"></span>
+                    </div>
+                    <ul class="dropdown-menu navbar-dropdown-colors">
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/ies_stats">
+                            Estatísticas das IES
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/paids_panel">
+                            Painel de pagos
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/farm_key_accounts">
+                            Ranking
+                          </a>
+                        </div>
+                      </li>
+                      <!-- li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/farm_campaign">
+                            Campanha
+                          </a>
+                        </div>
+                      </li -->
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/ies_panel">
+                            Painel de Velocímetro
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="navbar__dropdown__item no-padding">
+                <a class="navbar__dropdown__link navbar-submenu-link" href="/planilha_de_campanha">
+                  Planilha da campanha
+                </a>
+              </div>
+              <div class="navbar__dropdown__item no-padding">
+                <a class="navbar__dropdown__link navbar-submenu-link" href="/dashboard">
+                  Dashboard
+                </a>
+              </div>
+              <div class="navbar__dropdown__item no-padding">
+                <a class="navbar__dropdown__link navbar-submenu-link" href="/stock">
+                  Estoque
+                </a>
+              </div>
+              <div class="navbar__dropdown__item no-padding">
+                <ul class="no-padding">
+                  <li class="dropdown-submenu no-list-style navbar-padding">
+                    <div class="flex-vertical-centered">
+                      <span class="small-padding-right">Ferramentas</span>
+                      <span class="right-or-down-caret"></span>
+                    </div>
+                    <ul class="dropdown-menu navbar-dropdown-colors" style="width: 200px;">
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/demand_curves">
+                            Curvas de demanda
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/competitors_panel">
+                            Fluxo de Concorrência
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/analysis">
+                            Apresentações
+                          </a>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/pricing_panel">
+                            Precificação
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/inep_panel">
+                            INEP
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/search_shows">
+                            Exibições na busca
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/offers_panel">
+                            Ofertas
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/cpfs_panel">
+                            CPF's Bloqueados
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/sold_courses_panel">
+                            Cursos mais vendidos
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/courses_panel">
+                            Cursos mais buscados
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/crawler_panel">
+                            Concorrentes
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="navbar__item">
+          <div class="navbar__dropdown">
+            <span class="navbar__link">Qualidade</span>
+            <span class="caret"></span>
+
+            <div class="navbar__dropdown__container over-transparent-loader">
+              <div class="navbar__dropdown__item no-padding">
+                <ul class="no-padding">
+                  <li class="dropdown-submenu no-list-style navbar-padding">
+                    <div class="flex-vertical-centered">
+
+                      <span class="small-padding-right">Resultado</span>
+                      <span class="right-or-down-caret"></span>
+                    </div>
+                    <ul class="dropdown-menu navbar-dropdown-colors">
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/farm_quality_owners">
+                            Ranking
+                          </a>
+                        </div>
+                      </li>
+                      <!-- li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/quali_campaign">
+                            Campanha
+                          </a>
+                        </div>
+                      </li -->
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="navbar__dropdown__item no-padding">
+                <a class="navbar__dropdown__link navbar-padding" href="/dashboard">
+                  Dashboard
+                </a>
+              </div>
+              <div class="navbar__dropdown__item no-padding">
+                <ul class="no-padding">
+                  <li class="dropdown-submenu no-list-style navbar-padding">
+                    <div class="flex-vertical-centered">
+
+                      <span class="small-padding-right">Ferramentas</span>
+                      <span class="right-or-down-caret"></span>
+                    </div>
+                    <ul class="dropdown-menu navbar-dropdown-colors">
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/bo_panel">
+                            Painel de BO's
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/refund_panel">
+                            Painel de Reembolsos
+                          </a>
+                        </div>
+                      </li>
+                      <!-- li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/quality_stats">
+                            Estatísticas de tasks
+                          </a>
+                        </div>
+                      </li -->
+                      <li>
+                        <div class="navbar__dropdown__item no-padding">
+                          <a class="navbar__dropdown__link navbar-submenu-link" href="/quali_panel">
+                            Painel de faturamento por ordem
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- li class="navbar__item">
+          <div class="navbar__dropdown">
+            <span class="navbar__link">Quero Pago</span>
+            <span class="caret"></span>
+
+            <div class="navbar__dropdown__container over-transparent-loader">
+              <div class="navbar__dropdown__item no-padding">
+                <a class="navbar__dropdown__link navbar-submenu-link" href="/billing_panel">
+                  Ranking
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </li -->
+
+        <%= if user_is_farm_supervisor(@conn) do %>
+        <li class="navbar__item">
+          <div class="navbar__dropdown">
+            <span class="navbar__link">Administrativo</span>
+            <span class="caret"></span>
+
+            <div class="navbar__dropdown__container over-transparent-loader">
+              <div class="navbar__dropdown__item">
+                <a class="navbar__dropdown__link" href="/import_goals">
+                  Importar meta
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <% end %>
+    </div>
+  </div>
+</nav>

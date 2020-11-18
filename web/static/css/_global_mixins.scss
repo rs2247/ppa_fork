@@ -1,0 +1,6 @@
+// convenience
+@mixin add-capitalize() {
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}

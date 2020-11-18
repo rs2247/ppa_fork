@@ -1,0 +1,76 @@
+
+<%= page_component component: 'universitiesPage' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="content-header">Universidades - Meta móvel atualizada em: <%= @last_date %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel report-panel">
+        <div class="panel-body no-lat-padding">
+          <table id="report-table" class="data-table">
+            <thead>
+              <th>ID</th>
+              <th>Universidade</th>
+              <th>Grupo</th>
+              <th>Carteira</th>
+              <th>Farm</th>
+              <th>Qualidade</th>
+              <th>Meta semestre (R$)</th>
+              <th>Meta móvel (R$)</th>
+              <th>Realizado (R$)</th>
+              <th>QAP Speed (%)</th>
+              <th>Speed (%)</th>
+              <th>Tipo</th>
+              <th>Situação</th>
+              <th>Atratividade</th>
+              <th>Sucesso</th>
+              <th>Faturamento por ordem R$</th>
+              <th>Visitas em ofertas</th>
+              <th>Orders iniciadas</th>
+              <th>Orders pagas</th>
+              <th>Conversão</th>
+              <th>Trocas</th>
+              <th>QAP Speed 1d (%)</th>
+              <th>QAP Speed 7d (%)</th>
+            </thead>
+            <tbody>
+              <%= for university_goal <- @universities_goals do %>
+                <tr>
+                  <td><%= university_goal.university_id %></td>
+                  <td><%= university_goal.university_name %></td>
+                  <td><%= university_goal.education_group_name %></td>
+                  <td>C<%= university_goal.account_type %></td>
+                  <td><%= university_goal.owner %></td>
+                  <td><%= university_goal.quality_owner %></td>
+                  <td><%= number_to_delimited(university_goal.semester_goal) %></span></td>
+                  <td><%= number_to_delimited(university_goal.mobile_goal) %></span></td>
+                  <td><%= number_to_delimited(university_goal.realized) %></span></td>
+                  <td><%= number_to_percentage(university_goal.speed) %></td>
+                  <td><%= number_to_percentage(university_goal.legacy_speed) %></td>
+                  <td>
+                    <%= if university_goal.partner_plus do "QB+" else "Simples" end %>
+                    <%= if university_goal.billing do "QAP" end %>
+                  </td>
+                  <td><%= university_goal.status %></td>
+                  <td><%= university_goal.new_orders_per_visits %>%</td> <!-- Taxa de Atratividade -->
+                  <td><%= university_goal.paid_per_new_orders %>%</td>   <!-- Taxa de Exclusividade -->
+                  <td><%= university_goal.mean_income %></td>
+                  <td><%= university_goal.visits %></td>
+                  <td><%= university_goal.initiated_orders %></td>
+                  <td><%= university_goal.paid_orders %></td>
+                  <td><%= university_goal.paid_orders_per_visits %>%</td>
+                  <td><%= university_goal.exchangeds %></td>
+                  <td><%= university_goal.last_day_velocity %>%</td>
+                  <td><%= university_goal.last_week_velocity %>%</td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

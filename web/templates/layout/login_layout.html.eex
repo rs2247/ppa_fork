@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light-mode">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Painel do Parcerias Quero Bolsa">
+    <meta name="author" content="RedeAlumni">
+    <%# <link rel="icon" href="/favicon.png"> %>
+    
+    <title>Painel do Parcerias Quero Bolsa</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+
+    <script src="//use.typekit.net/oud1ilb.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  </head>
+
+  <body class="operator-panel-login">
+      <%= render @view_module, @view_template, assigns %>
+
+  </body>
+</html>
+

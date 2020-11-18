@@ -1,0 +1,97 @@
+
+<%= page_component component: 'keyAccountsPanelPage' %>
+
+<input id="daily-contributions-data" type="hidden" value="<%= @daily_contributions_til_today %>"/>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <h2 class="content-header"><%= @title %> - Meta móvel atualizada em: <%= @last_date %></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="charts-panels col-md-12">
+      <div class="col-md-4 col-sm-12 no-padding">
+        <div class="panel">
+          <div class="panel-body">
+            <div id="time-chart-farmer" class="chart chart-padding"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12 no-padding">
+        <div class="panel">
+          <div class="panel-body chart">
+            <img src="/general_goal" style="height: 100%">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12 no-padding">
+        <div class="panel">
+          <div class="panel-body">
+            <div id="daily-contributions" class="chart chart-padding"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel report-panel">
+        <div class="panel-body no-lat-padding">
+          <table id="report-table" class="data-table">
+            <thead>
+              <th>Key Account</th>
+              <th>Carteira</th>
+              <th>Segmento</th>
+              <th>Meta semestre (R$)</th>
+              <th>Meta móvel (R$)</th>
+              <th>Realizado (R$)</th>
+              <th>QAP Speed (%)</th>
+              <th>Speed (%)</th>
+              <th>Visitas em ofertas</th>
+              <th>Faturamento por ordem (R$)</th>
+              <th>Conversão</th>
+              <th>Atratividade</th>
+              <th>Sucesso</th>
+              <th>Gap Atual (R$)</th>
+              <th>Gap Semestre (R$)</th>
+            </thead>
+            <tbody>
+              <%= for goal_product_line <- @farm_goals do %>
+                <tr>
+                  <td><%= goal_product_line.owner %></td>
+                  <td><%= Enum.reduce(goal_product_line.account_types, "", & &2<>"C#{&1} ") %></td>
+                  <td><%= goal_product_line.product_line_name %></td>
+                  <td><%= number_to_delimited(goal_product_line.semester_goal) %></span></td>
+                  <td><%= number_to_delimited(goal_product_line.mobile_goal) %></span></td>
+                  <td><%= number_to_delimited(goal_product_line.realized) %></span></td>
+                  <td><%= number_to_delimited(goal_product_line.speed) %></td>
+                  <td><%= number_to_delimited(goal_product_line.legacy_speed) %></td>
+                  <td><%= goal_product_line.visits %></td>
+                  <td><%= goal_product_line.mean_income %></td>
+                  <td><%= goal_product_line.conversion %></td>
+                  <td><%= goal_product_line.atraction %></td>
+                  <td><%= goal_product_line.success %></td>
+                  <td><%= number_to_delimited(goal_product_line.current_goal_gap) %></td>
+                  <td><%= number_to_delimited(goal_product_line.goal_gap) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>

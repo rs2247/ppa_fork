@@ -1,0 +1,40 @@
+<template>
+  <div class="snowflakes">
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+      ❅
+    </div>
+    <div class="snowflake">
+      ❆
+    </div>
+    <div class="snowflake">
+      ❅
+    </div>
+    <div class="snowflake">
+      ❆
+    </div>
+    <div class="snowflake">
+      ❅
+    </div>
+    <div class="snowflake">
+      ❆
+    </div>
+  </div>
+</template>

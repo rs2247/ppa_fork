@@ -1,0 +1,63 @@
+.login-logo {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 16px;
+  color: $color-silver;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 30px;
+}
+
+.login-header {
+  background-color: $color-white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: $font-weight-regular;
+  padding: 12px;
+  color: $color-gunmetal;
+  width: 100%;
+  border-top: solid 2px $color-strange-white;
+  border-left: solid 2px $color-strange-white;
+  border-right: solid 2px $color-strange-white;
+}
+
+.login-body {
+  background-color: $color-white;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: solid 2px $color-strange-white;
+  padding-top: 15px;
+}
+
+.login-field-header {
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  margin-top: 10px;
+}
+
+.login-body-footer {
+  padding-top: 30px;
+}
+
+.login-field {
+  height: 32px;
+  background-color: $color-white;
+  border: solid 1px $color-strange-white;
+  padding-right: 10px;
+  width: 100%;
+
+  padding-left:15px;
+}
+
+.login-message {
+  text-align: center;
+  color: $color-faded-red;
+}
+
+.operator-panel-login {
+  background-color: $color-pale-grey;
+}

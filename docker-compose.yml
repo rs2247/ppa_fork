@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  ppa:
+    container_name: ppa
+    image: quero/ppa
+    volumes:
+      - ./shared:/shared
+      - .:/ppa
+      - ~/.ppa_cache/root:/root
+      - ~/.ppa_cache/node:/ppa/node_modules
+      - ~/.ppa_cache/deps:/ppa/deps
+      - ~/.ppa_cache/_build:/ppa/_build
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/bin/docker
+    ports:
+      - 7000:4000
+    command: "/bin/sh -c 'while true; do sleep 60; done'"

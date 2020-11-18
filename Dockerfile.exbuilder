@@ -1,0 +1,36 @@
+FROM elixir:1.7.4
+
+# this is a "build helper" image
+# you should not use this to run the project, only to build
+# production releases from your machine
+
+
+ENV NPM_CONFIG_LOGLEVEL info
+ENV NODE_VERSION 8.15.1
+
+RUN  curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
+  && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
+  && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
+  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" \
+  && ln -s /usr/local/bin/node /usr/local/bin/nodejs
+
+# Install yarn
+RUN apt-get update && apt-get install -y apt-transport-https ca-certificates
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y yarn
+RUN yarn config set cache-folder /root/.yarn-cache
+
+# Needed for Distillery to work
+ENV REPLACE_OS_VARS true
+ENV MIX_ENV prod
+
+RUN mix local.hex --force && mix local.rebar --force
+RUN mkdir /app
+RUN mkdir /app/priv
+RUN mkdir -p priv/static
+
+COPY . /app
+WORKDIR /app
+
+VOLUME /root/.hex /app/node_modules /app/_build/prod/rel /app/priv/static /app/deps

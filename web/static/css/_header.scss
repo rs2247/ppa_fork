@@ -1,0 +1,54 @@
+header {
+  display: flex;
+  align-items: stretch;
+  height: 64px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 17px;
+  color: #FFFFFF;
+
+  .app-title {
+    width: 260px;
+  }
+
+  .app-title-date {
+    font-weight: normal;
+  }
+
+  .header-section {
+    display: flex;
+    background-color: $color-topaz;
+  }
+
+  .main {
+    float: left;
+    text-align: left;
+    margin-right: 1px;
+    padding: 24px;
+    width: 100%;
+  }
+
+  .capture-period {
+    align-self: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  .username {
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  .actions {
+    float: right;
+    text-align: left;
+    padding: 20px 27px 20px;
+  }
+
+  .header-icon {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+}

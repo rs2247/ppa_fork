@@ -1,0 +1,28 @@
+@mixin default-app-scss() {
+  /// ================= ///
+  ///   PAGE DEFAULTS   ///
+  /// ================= ///
+
+  body {
+    height: 100vh;
+    font-family: $font-default;
+    background-color: $color-background;
+    font-weight: normal;
+  }
+
+  .page {
+    color: $color-submarine;
+  }
+
+  .page a {
+    color: $color-turquoise;
+  }
+
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+
+  .disabled {
+    color: $nav-disabled-link-color;
+  }
+}

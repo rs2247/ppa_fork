@@ -1,0 +1,54 @@
+####From opa####
+
+FROM ubuntu:xenial-20170802
+
+MAINTAINER Diogo Lucena "diogo.lucena@redealumni.com"
+#Remove annoying docker warning
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+RUN apt-get update
+
+# Install nonsense dependency packages needed to install erlang-solutions, node.js and run mix deps.get, also sets the locale to en_US.UTF-8 for elixir's warning avoid purposes
+RUN apt-get install -y software-properties-common build-essential
+RUN apt-get install -y  apt-utils \
+  apt-transport-https \
+  wget \
+  curl \
+  git \
+  gcc \
+  locales
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+# End of nonsense
+
+RUN add-apt-repository 'deb https://packages.erlang-solutions.com/ubuntu xenial contrib' \
+  && wget https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc \
+  && apt-key add erlang_solutions.asc \
+  && apt-get update \
+  && apt-get install -y esl-erlang \
+  && apt-get install -y elixir=1.4.4-1 \
+  && apt-get clean
+RUN mix local.hex --force \
+  && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+  && apt-get install -y nodejs
+
+#PPA
+RUN mkdir /ppa
+ADD . /ppa
+
+RUN cp /ppa/config/examples/private_dev.exs.example /ppa/config/private_dev.exs && cp /ppa/config/examples/database_docker.exs.example /ppa/config/database.exs
+
+WORKDIR /ppa
+
+# Install hex (Elixir package manager)
+RUN mix local.hex --force
+
+# Install rebar (Erlang build tool)
+RUN mix local.rebar --force
+RUN mix deps.get
+RUN mix deps.compile
+RUN npm install
+
+expose 4000

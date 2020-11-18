@@ -1,0 +1,56 @@
+####From opa####
+
+FROM elixir:1.7.4
+
+ARG generator_shared_path=/data/ppa/shared
+ARG generator_templates_path=/data/ppa/ppt_templates
+
+
+MAINTAINER Yourself "yourself@redealumni.com"
+#Remove annoying docker warning
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+RUN apt-get update
+
+# Install dependency packages and sets the locale to en_US.UTF-8 for elixir's warning avoid purposes
+RUN apt-get install -y software-properties-common build-essential
+RUN apt-get install -y  apt-utils \
+  apt-transport-https \
+  wget \
+  curl \
+  git \
+  nano \
+  net-tools \
+  screen \
+  gcc \
+  locales
+
+RUN dpkg-reconfigure -fnoninteractive locales
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
+RUN mix local.hex --force \
+  && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+  && apt-get install -y nodejs
+
+RUN apt-get install -y odbcinst libsasl2-modules-gssapi-mit
+
+RUN curl -o /simbaspark.deb https://s3-sa-east-1.amazonaws.com/querobolsa-binaries/simbaspark_2.6.4.1004-2_amd64.deb \
+  && dpkg -i /simbaspark.deb
+
+RUN echo "[ODBC Drivers]\n\
+Simba = Installed\n\
+[Simba]\n\
+Driver = /opt/simba/spark/lib/64/libsparkodbc_sb64.so\n\
+" > /etc/odbcinst.ini
+
+WORKDIR /ppa
+
+ENV PPT_GENERATOR_SHARED_PATH ${generator_shared_path}
+ENV PPT_GENERATOR_TEMPLATES_PATH ${generator_templates_path}
+
+expose 4000
+
+ENV SECRET_KEY_BASE DEV_BASE_SECRET_KEY

@@ -1,0 +1,166 @@
+//========== DARK MODE COLORS DEFINITION ==========
+$color-box-header-background: $color-black-gray;
+$color-box-header-border: transparent;
+$color-box-header-text: $color-white;
+
+$color-main-button-background: $color-turquoise;
+$color-main-button-shadow: $color-strange-blue;
+$color-main-button-text: $color-white;
+$color-main-button-background-hover: $color-turquoise-light;
+$color-main-button-shadow-hover: $color-turquoise-blue;
+$color-main-button-background-active: $color-turquoise;
+$color-main-button-shadow-active: $color-strange-blue;
+$color-main-button-background-disabled: $color-light-teal;
+$color-main-button-shadow-disabled: $color-light-teal;
+$color-main-button-text-disabled: $color-white;
+
+$color-call-button-background: $color-spring-green;
+
+$color-input-field-background: $color-space-gray;
+$color-input-field-text: $color-chrome-gray;
+$color-input-field-text-focus: $color-light-gray;
+$color-input-field-validation-error: $color-bright-red;
+$color-input-field-placeholder: $color-light-grey;
+
+$color-links-default: $color-silver-gray;
+
+$color-menu-background: $color-space-gray;
+$color-menu-background-hover: $color-dark-gray;
+
+$color-navbar-background: $color-space-gray;
+$color-navbar-brand: $color-silver;
+$color-navbar-separator: $color-dark-gray;
+$color-navbar-hr: $color-star-gray;
+$color-navbar-link: $color-turquoise;
+$color-navbar-border: $color-dark-gray;
+
+$color-order-detail-background: $color-space-gray;
+$color-order-detail-line: $color-dark-gray;
+$color-order-detail-text: $color-light-gray;
+$color-order-detail-warning: $color-dusty-orange;
+$color-order-header-text: $color-white;
+
+$color-profile-background: $color-dark-gray;
+$color-profile-border: transparent;
+
+$color-profile-card-background: $color-star-gray;
+$color-profile-card-border: $color-dark-grey;
+$color-profile-card-header-border: $color-dark-gray;
+$color-profile-card-header-selected: $color-spring-green;
+$color-profile-card-header-text: $color-white;
+$color-profile-card-shadow: $color-strange-white-two;
+$color-profile-card-line: $color-light-black-two;
+$color-profile-card-text: $color-light-gray;
+$color-profile-card-no-contacts: $color-gunmetal;
+
+$color-profile-name-edit-info: $color-steel;
+$color-profile-name-element: $color-gunmetal;
+$color-profile-name-text-blur: $color-silver;
+$color-profile-name-text: $color-lightest-gray;
+$color-profile-name-text-deleted: $color-cerise-red;
+$color-profile-name-input: $color-steel;
+
+$color-profile-user-info-input: $color-cerise-red;
+$color-profile-user-info-input-background: $color-white;
+$color-profile-user-info-exclusion-confirmation: $color-steel;
+$color-profile-user-info-exclusion-action: $color-cerise-red;
+$color-profile-user-info-exclusion-cancel: $color-gunmetal;
+
+$color-search-fake-modal-background: $color-dark-gray;
+$color-search-modal-background: $color-star-gray;
+$color-search-result-selected-background: $color-spring-green;
+$color-search-result-text-hover: $color-gunmetal;
+$color-search-result-text: $color-silver-two;
+
+$color-tab-header-inactive: $color-chrome-gray;
+$color-tab-header: $color-white;
+
+$color-tag-background: $color-turquoise;
+$color-tag-text: $color-white;
+
+$color-ticket-active-background: $color-spring-green;
+$color-ticket-background: $color-black-gray;
+$color-ticket-border: $color-light-black-two;
+$color-ticket-filter-background: $color-dark-gray;
+$color-ticket-filter-text: $color-light-gray;
+$color-ticket-text: $color-lightest-gray;
+$color-ticket-selected-text: $color-white;
+$color-ticket-text-old: $color-chrome-gray;
+$color-ticket-legend-text: $color-chrome-gray;
+$color-ticket-hover-border: $color-white;
+
+$color-modal-content: $color-star-gray;
+$color-modal-message: $color-light-gray;
+$color-modal-body: $color-profile-card-text;
+$color-modal-title: $color-white;
+$color-modal-border: $color-cerise-red;
+$color-modal-header-border: $color-dark-gray;
+$color-modal-field-description: $color-light-gray;
+
+$color-opa-background: $color-profile-background;
+
+$color-timeline-card-text: $color-white;
+$color-timeline-icon-background: $color-turquoise;
+$color-timeline-icon-legend-background: $color-profile-card-background;
+$color-timeline-card-background: $color-space-gray;
+$color-timeline-icon-legend-text: $color-turquoise;
+$color-timeline-card-divisor: $color-light-black-two;
+$color-timeline-card-background-shadow: $color-bluish-grey;
+$color-timeline-highlight-text: $color-white;
+
+$color-field-name-text: $color-white;
+$color-ticket-filter-container-border: $color-space-gray;
+
+$color-order-step-checked: $color-spring-green;
+$color-order-step-not-checked: $color-silver-gray;
+
+$color-header-1: $color-white;
+$color-header-2: $color-white;
+$color-header-3: $color-white;
+$color-header-4: $color-white;
+$color-header-5: $color-chrome-gray;
+$color-header-6: $color-white;
+
+$color-menu-text: $color-turquoise;
+
+$color-highlight-link: $color-turquoise;
+$color-default-link: $color-steel;
+
+$color-university-tweets-background: $color-profile-card-background;
+$color-university-tweets-border: $color-light-gray;
+$color-university-tweets-detail-header-text: $color-silver-gray;
+$color-university-tweets-detail-timestamp-text: $color-silver-gray;
+$color-university-tweets-content-border: #e1e4e7;
+$color-university-tweets-horizontal-line: #e1e4e7;
+
+
+$color-table-result-odd: $color-star-gray;
+$color-table-result-even: $color-space-gray;
+$color-table-result-text: $color-white;
+$color-table-result-hover: $color-turquoise;
+$color-table-result-header-border: $color-dark-gray;
+$color-table-result-border: $color-star-gray;
+
+$color-course-search-background: $color-star-gray;
+$color-call-icon-background: $color-spring-green;
+$color-course-result-border: $color-strange-white;
+
+$color-text-border-default: $color-chrome-gray;
+$color-text-border-focus: $color-turquoise-light;
+$color-text-border-error: $color-cerise-red;
+
+$color-text-login: $color-light-gray;
+$color-text-login-bold: $color-white;
+
+$color-effective-panel-graph-border: $color-space-gray;
+$color-effective-panel-text: $color-white;
+$color-effective-panel-legend-background: $color-star-gray;
+$color-effective-panel-tooltip-background: $color-space-gray;
+$color-effective-panel-tooltip-text: $color-light-gray;
+
+$color-stats-background: $color-star-gray;
+
+$color-inactive-slider: $color-black-gray;
+$color-active-slider: $color-turquoise;
+
+$color-bo-new-comment-info: $color-pale-grey;

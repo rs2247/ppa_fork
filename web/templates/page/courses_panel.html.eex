@@ -1,0 +1,8 @@
+<input id="capture-period" type="hidden" value="<%= @actual_capture_period.id %>">
+<input id="channel-hash" type="hidden" value="<%= @channel_hash %>">
+<input id="token" type="hidden" value="<%= @token %>">
+<div id="app">
+  <courses-panel></courses-panel>
+</div>
+
+<%= page_component component: 'coursesPanel' %>

@@ -1,0 +1,38 @@
+<%
+  subject_underlined = if Map.has_key?(assigns, :subject), do: "#{assigns[:subject]}_", else: ""
+  subject_dashed = if Map.has_key?(assigns, :subject), do: "#{assigns[:subject]}-", else: ""
+
+  assigns = Map.put(assigns, :subject_underlined, subject_underlined)
+  assigns = Map.put(assigns, :subject_dashed, subject_dashed)
+%>
+
+<input id="<%= @subject_dashed %>initial-university-id" type="hidden" value='<%= @params["#{@subject_underlined}university_id"] %>'/>
+<input id="<%= @subject_dashed %>initial-education-group-id" type="hidden"  value='<%= @params["#{@subject_underlined}education_group_id"] %>'/>
+<input id="<%= @subject_dashed %>initial-university-name" type="hidden" value='<%= @params["#{@subject_underlined}university_name"] %>'/>
+<input id="<%= @subject_dashed %>initial-education-group-name" type="hidden" value='<%= @params["#{@subject_underlined}education_group_name"] %>'/>
+
+<div class='<%= assigns[:class] || "" %>'>
+  <div class="form-group">
+    <label for='<%= "#{subject_dashed}university-filter-type" %>'><%= assigns[:type_label] || "UNIVERSIDADE" %></label>
+    <%= component "dropdown.html", id: "#{subject_dashed}university-filter-type",
+    selected: @params["#{subject_underlined}university_filter_type"] || assigns[:default_selection] || "university", items: @items %>
+  </div>
+</div>
+
+<div id="<%= @subject_dashed %>university-filter" class='<%= assigns[:class] || "" %>'>
+  <div class="form-group has-feedback">
+    <label for='<%= "#{subject_dashed}university-autocomplete" %>'><%= assigns[:university_label] || "INSIRA SUA PESQUISA" %></label>
+    <%= component "autocomplete.html", id: "#{subject_dashed}university-autocomplete",
+      placeholder: "Nome da Universidade...", class: "highlighted" %>
+    <i class="form-control-feedback glyphicon glyphicon-search" aria-hidden="true"></i>
+  </div>
+</div>
+
+<div id="<%= @subject_dashed %>education-group-filter" class='<%= assigns[:class] || "" %>' style="display:none">
+  <div class="form-group has-feedback">
+    <label for='<%= "#{subject_dashed}education-group-autocomplete" %>'><%= assigns[:group_label] || "INSIRA SUA PESQUISA" %></label>
+    <%= component "autocomplete.html", id: "#{subject_dashed}education-group-autocomplete",
+      placeholder: "Nome do Grupo...", class: "highlighted" %>
+    <i class="form-control-feedback glyphicon glyphicon-search" aria-hidden="true"></i>
+  </div>
+</div>

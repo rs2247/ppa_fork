@@ -1,0 +1,113 @@
+table.data-table {
+  background-color: $color-space-gray;
+  border: none !important;
+
+  th, td {
+    padding: 16px 20px !important;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    border: none !important;
+  }
+
+  td {
+    text-align: center;
+
+    .currency {
+      width: 120px;
+    }
+    .percentage {
+      width: 90px;
+    }
+    .sm-number {
+      width: 90px;
+    }
+    .single-name {
+      width: 120px;
+    }
+    .name {
+      width: 250px;
+    }
+    .lg-name {
+      width: 350px;
+    }
+  }
+
+  tr.odd {
+    background-color: $color-dark-gray;
+  }
+
+  tr.even {
+    background-color: $color-space-gray;
+  }
+
+  tr:hover {
+    background-color: $color-dark-hover;
+  }
+
+  th, tfoot td {
+    background-color: $color-background;
+    font-weight: bold;
+  }
+
+}
+
+.dataTables_wrapper {
+  padding: 15px !important;
+}
+
+.dt-buttons {
+  padding-bottom: 12px;
+
+  .dt-button {
+    height: 40px;
+    font-size: 14px;
+    min-width: 80px;
+    border-radius: 4px;
+
+    span {
+      margin-top: 2px;
+      width: 100%;
+      color: $color-topaz;
+      text-align: center;
+      display: block;
+    }
+  }
+}
+
+.dataTables_filter {
+  float: left !important;
+  @extend .form-group;
+  @extend .has-feedback;
+
+  input, input:focus {
+    font-weight: 300;
+    height: 40px;
+    @extend .form-control;
+    @extend input[type="text"].highlighted;
+    color: $color-bluish-grey;
+  }
+
+  .form-control-feedback {
+    margin-top: 3px;
+    color: $color-bluish-grey;
+  }
+}
+
+.dataTables_paginate {
+  padding-top: 20px !important;
+
+  .paginate_button {
+    border-radius: 4px;
+    font-size: 14px;
+    color: $color-submarine !important;
+  }
+
+  .paginate_button.disabled {
+    color: $color-dark-turquoise !important;
+  }
+
+  a.current {
+    color: $color-topaz !important;
+  }
+}

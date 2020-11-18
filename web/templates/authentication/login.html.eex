@@ -1,0 +1,61 @@
+<script>
+function loginChange()
+{
+  var login = document.getElementById("login-field").value;
+  if (login.indexOf("@") == -1)
+  {
+    document.getElementById("login-field").value = login + '@redealumni.com';
+  }
+}
+</script>
+<div class="col-xs-4">
+
+</div>
+
+<div class="col-md-4 col-sm-4 col-xs-12" >
+
+  <div class="login-logo">
+    <img src="/images/logo-querobolsa-og.png" width="160px" heigth="350px">
+  </div>
+  <div class="login-title">
+    PAINEL DO PARCERIAS
+  </div>
+
+  <div class="col-xs-12 login-header">
+    Login
+  </div>
+  <div class="col-xs-12 login-body">
+    <div class="login-message">
+      <%= get_flash(@conn, :error) %>
+    </div>
+    <form method="post" action="/auth">
+      <div class="login-field-header">
+        Email
+      </div>
+      <div>
+        <input id="login-field" type="text" name="user" class="login-field " onChange="loginChange()" autofocus
+          value="<%= get_flash(@conn, :current_email) %>">
+      </div>
+      <div class="login-field-header">
+        Senha
+      </div>
+      <div>
+        <input type="password" name="password" class="login-field">
+      </div>
+      <div class="login-body-footer" align="center">
+        <input type="submit" value="Entrar" class="button-main" style="float: left;">
+
+        <a target="_blank" href="https://querobolsa.com.br/admin_users/password/new" style="float: right;">Esqueceu a senha?</a>
+      </div>
+
+
+      <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+      <input type="hidden" name="redir" value="<%= @redir %>">
+    </form>
+
+  </div>
+</div>
+
+<div class="col-xs-4">
+
+</div>

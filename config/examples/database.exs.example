@@ -1,0 +1,50 @@
+use Mix.Config
+
+config :ppa, Ppa.Endpoint,
+  secret_key_base: "EyzEYA3mMgnDLpQCPk3N2GVJ6XSZrplUlFLE1rRokVSPVZV6LwdJMrvHkV8WmMeU"
+
+config :ppa, Ppa.RepoQB,
+  adapter: Ecto.Adapters.Postgres,
+  username: "usuario_do_banco",
+  password: "senha_do_banco",
+  database: "querobolsa_development",
+  hostname: "localhost",
+  migration_source: "ecto_migrations",
+  port: 5431,
+  pool_size: 10
+
+config :ppa, Ppa.RepoParcerias,
+  adapter: Ecto.Adapters.Postgres,
+  username: "usuario_do_banco",
+  password: "senha_do_banco",
+  database: "redmine_production",
+  hostname: "localhost",
+  port: 5431,
+  pool_size: 10
+
+config :ppa, Ppa.RepoRedmine,
+  adapter: Ecto.Adapters.Postgres,
+  username: "usuario_do_banco",
+  password: "senha_do_banco",
+  database: "redmine_production",
+  hostname: "localhost",
+  port: 5431,
+  pool_size: 10
+
+config :ppa, Ppa.RepoPipeline,
+  adapter: Ecto.Adapters.Postgres,
+  username: "usuario_do_banco",
+  password: "senha_do_banco",
+  database: "pipeline_production",
+  hostname: "localhost",
+  port: 5431,
+  pool_size: 10
+
+config :ppa, Ppa.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "usuario_do_banco",
+  password: "senha_do_banco",
+  database: "ppa",
+  hostname: "localhost",
+  port: 5431,
+  pool_size: 10

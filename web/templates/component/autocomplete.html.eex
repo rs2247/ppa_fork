@@ -1,0 +1,2 @@
+<input type="text" id="<%= @id %>" placeholder='<%= assigns[:placeholder] || "" %>'
+       class='typeahead <%= assigns[:class] || "" %>' <%= if assigns[:disabled], do: "disabled='disabled'" %> />

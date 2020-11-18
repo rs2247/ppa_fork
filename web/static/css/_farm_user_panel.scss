@@ -1,0 +1,48 @@
+.charts-panels {
+  .panel {
+    height: 340px;
+    padding: 16px;
+  }
+
+  .panel-body {
+    padding: 0px;
+  }
+
+  .chart {
+    height: 330px;
+  }
+
+  .chart-padding {
+    padding: 8px;
+  }
+}
+
+.report-panel {
+  .panel-body {
+    overflow-x: auto;
+  }
+}
+
+.speed-goal-iframe {
+   height: calc(100% - 8px);
+   width: calc(100% - 8px);
+   margin: 4px;
+   border: 0;
+}
+
+.farm-chart {
+   width: 33%;
+   float: left;
+}
+
+.speed-goal-chart {
+  width: 33%;
+  float: left;
+  height: 406px;
+}
+
+.daily-contributions-chart {
+  width: 33%;
+  float: left;
+  height: auto;
+}

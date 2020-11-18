@@ -1,0 +1,27 @@
+.select2-container {
+  .select2-selection--multiple {
+    display: inline-block;
+    padding: 3px;
+    min-height: 40px !important;
+    width: 100%;
+    background-color: $color-input-field-background;
+    border-color: $color-text-border-default;
+  }
+
+  .select2-results__option--highlighted[aria-selected]{
+    background-color: $color-topaz;
+  }
+}
+
+.select2-container--focus .select2-selection--multiple {
+  border-color: $color-text-border-focus !important;
+}
+
+.select2-results__options {
+  color: $color-steel;
+}
+
+.select2-selection__choice {
+  background-color: #fff !important;
+  color: $color-steel;
+}

@@ -1,0 +1,137 @@
+// Configurations for TypeAhead autocomplete
+.tt-query {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-hint {
+  color: #999999;
+}
+
+.tt-input {
+  border-radius: 4px;
+}
+
+.tt-dropdown-menu {
+  overflow-x: hidden;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px;
+  border-radius: 0 6px 6px 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 8px;
+  padding: 2px 0px;
+  width: 330px;
+}
+
+.tt-suggestion {
+  padding: 2px 16px;
+  margin: 4px 0px;
+  color: $color-steel;
+  text-align: left;
+
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.tt-suggestion.tt-cursor {
+  background-color: $color-topaz;
+  color: $color-white;
+  cursor: pointer;
+}
+
+.twitter-typeahead {
+  display: block;
+  border-radius: 4px;
+  height: 34px;
+  width: 100%;
+}
+
+
+// autocomplete field
+div.autocomplete-field {
+  display: inline-block;
+  position: relative;
+
+  input {
+    &.contact-reason {
+      width: inherit;
+      height: inherit;
+      padding: 10px;
+      padding-right: 30px;
+
+      border: solid 1px $color-text-border-default;
+      background-color: $color-input-field-background;
+      color: $color-input-field-text;
+    }
+
+    &.contact-reason:hover {
+      border: solid 1px $color-aqua-marine;
+    }
+
+    &.contact-reason:focus {
+      color: $color-input-field-text-focus;
+    }
+  }
+
+  span {
+    &.dropdown-arrow {
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      color: $color-input-field-text;
+    }
+  }
+}
+
+ul.autocomplete-suggestions {
+  position: absolute;
+  top: 45px;
+  left: 15px;
+  border: 1px solid $color-strange-white;
+  border-radius: 4px;
+  width: 250px;
+  background-color: $color-white;
+
+  &.contact-reason {
+    top: 42px;
+    left: 0px;
+    width: 362px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    li {
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 20px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+
+  li {
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    display: block;
+    padding: 0px 15px;
+    line-height: 30px;
+    height: 30px;
+    background-color: #fff;
+    cursor: pointer;
+    color: $color-steel;
+
+    &:hover {
+      color: #fff;
+      background-color: $color-topaz;
+    }
+  }
+  z-index: 2;
+}

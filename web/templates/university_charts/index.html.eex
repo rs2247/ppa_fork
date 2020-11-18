@@ -1,0 +1,156 @@
+
+<%= page_component component: 'universityChartsPage' %>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Filtros de Pesquisa</div>
+      <div class="panel-body no-lat-padding">
+        <form id="filters-form" class="col-md-12 no-padding">
+          <input id="initial-start-date" type="hidden" value='<%= start_date(assigns) %>'/>
+          <input id="initial-end-date" type="hidden"  value='<%= end_date(assigns) %>'/>
+
+          <div class="row">
+            <div class="col-md-2 col-sm-6">
+              <div class="form-group">
+                <label for="start-date">DATA INÍCIO</label>
+                <input id="start-date" class="form-control" type="text" name="start_date" />
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6">
+              <div class="form-group">
+                <label for="end-date">DATA FIM</label>
+                <input id="end-date" type="text" name="end_date" class="form-control" />
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6">
+              <div class="form-group">
+                <label for="kind-filter">MODALIDADE</label>
+                <%= multiple_select nil, :kind, kind_select_options(),
+                      id: "kind-filter", class: "js-kinds-multi-select",
+                      selected: assigns["kind"] %>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6">
+              <div class="form-group">
+                <label for="level-filter">NÍVEL</label>
+                <%= multiple_select nil, :level, level_select_options(),
+                      id: "level-filter", class: "js-levels-multi-select",
+                      selected: assigns["level"] %>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="checkbox">
+                <label for="compare-with-base">
+                  <input id="compare-with-base" type="checkbox" name="compare-with-base"
+                    <%= compare_with_base?(assigns) %> />
+                    Comparar com taxa base
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <%= component "university-filter.html", items: university_or_group_filters(), default_selection: "university",
+              params: assigns, class: "col-md-3 col-sm-6" %>
+            <%= component "university-filter.html", subject: "comparison", items: comparison_types(), default_selection: "none",
+              type_label: "COMPARAÇÃO", university_label: "COMPARAR COM", group_label: "COMPARAR COM", class: "col-md-3 col-sm-6",
+              params: assigns %>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <button id="update-btn" class="btn-submit inline-btn" type="submit">
+                Atualizar
+              </button>
+              <button class="js-export-csv btn-submit btn-submit--spaced-left inline-btn hidden" type="button">
+                Exportar CSV
+              </button>
+            </div>
+            </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="report-panel col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading--spaced-bottom">Visitas</div>
+
+        <div class="panel-body no-lat-padding">
+          <div id="university-chart-visits">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading--spaced-bottom">Ordens</div>
+
+        <div class="panel-body no-lat-padding">
+          <div id="university-chart-orders">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading--spaced-bottom">Ordens Pagas</div>
+
+        <div class="panel-body no-lat-padding">
+          <div id="university-chart-paid-orders">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading--spaced-bottom">Atratividade (%)</div>
+
+        <div class="panel-body no-lat-padding">
+          <div id="university-chart-attractiveness">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading--spaced-bottom">Sucesso (%)</div>
+
+        <div class="panel-body no-lat-padding">
+          <div id="university-chart-exclusivity">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading--spaced-bottom">Conversão (%)</div>
+
+        <div class="panel-body no-lat-padding">
+          <div id="university-chart-conversion">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading--spaced-bottom">Faturamento por Ordem (R$)</div>
+
+        <div class="panel-body no-lat-padding">
+          <div id="university-chart-student-price">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading--spaced-bottom">Ticket Médio (CP) (R$)</div>
+
+        <div class="panel-body no-lat-padding">
+          <div id="university-chart-average-price">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>

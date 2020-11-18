@@ -1,0 +1,7 @@
+<input id="capture-period" type="hidden" value="<%= @actual_capture_period.id %>">
+<input id="channel-hash" type="hidden" value="<%= @channel_hash %>">
+<input id="token" type="hidden" value="<%= @token %>">
+<div id="app">
+  <ies-stats :managing-user="<%= user_has_managing_ability(@conn) %>"></ies-stats>
+</div>
+<%= page_component component: 'iesStats' %>

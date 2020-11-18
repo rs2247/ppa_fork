@@ -1,0 +1,47 @@
+
+<%= page_component component: 'foeStockPage' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel report-panel">
+        <table id="report-table" class="data-table">
+          <thead>
+            <th>Site</th>
+            <th>Universidade</th>
+            <th>Id Quero Bolsa</th>
+            <th>Situação</th>
+            <th>% de Desconto</th>
+            <th>Modalidade</th>
+            <th>Cursos</th>
+            <th>Cursos com estoque</th>
+            <th>% Cursos com estoque</th>
+            <th>Quantidade de Cursos com Ofertas no QB</th>
+            <th>Data</th>
+          </thead>
+          <tbody>
+            <%= for row <- @stock do %>
+              <tr>
+                <td><%= row["site"] %></td>
+                <td><%= row["university"] %></td>
+                <td><%= row["university_id"] || "N/A" %></td>
+                <td><%= case {row["is_partner"], row["is_frozen"]} do
+                          {false, _} -> "Não Parceira"
+                          {true, false} -> "Parceira"
+                          {true, true} -> "Congelada por #{row["days_frozen"]} dias"
+                          _ -> ""
+                        end %></td>
+                <td><%= row["discount_percentage"] %></td>
+                <td><%= row["kind"] %></td>
+                <td><%= row["courses"] %></td>
+                <td><%= row["course_with_seats"] %></td>
+                <td><%= row["course_with_seats_percentage"] %></td>
+                <td><%= row["qb_courses"] || "-" %></td>
+                <td><%= row["date"] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
